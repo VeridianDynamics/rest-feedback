@@ -1,0 +1,96 @@
+# This is an abandoned effort - it turns out this produced far too much code.
+# Left here just for reference
+swagger: "2.0"
+info:
+  title: Feedback API
+  description: Provides an API for the feedback application
+  version: "1.0.0"
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /list:
+    get:
+      summary: List feeback entries
+      description: The Feedbacks endpoint returns a list of all feedback.
+      responses:  
+        "200":
+          description: An array of feedback entries
+          schema:
+            $ref: '#/definitions/FeebackList'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /feedback/{name}:
+    get:
+      description: Returns a list of feedback from a specified username
+      operationId: find feedback by name
+      parameters:
+        - name: name
+          in: path
+          description: Name to search for
+          required: true
+          type: string
+      responses:
+        "200":
+          description: An array of feedback entries by name
+          schema:
+            $ref: '#/definitions/FeebackList'
+  /feedback:
+    post:
+      summary: Send feedback
+      operationId: sendFeedback
+      parameters:
+        -
+          name: "feedback"
+          in: "body"
+          description: feedback entry
+          required: true
+          schema:
+            $ref: '#/definitions/FeedbackEntry'
+      responses:
+        "201":
+          description: Feedback sent
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Feedback:
+    properties:
+      id:
+        type: long
+      timestamp:
+        type: long #TODO: change?
+      name:
+        type: string
+        description: Name of the user
+      text:
+        type: string
+        description: The feedback text.
+  FeedbackEntry:
+    properties:
+      name:
+        type: string
+        description: Name of the user
+      text:
+        type: string
+        description: The feedback text.
+  FeebackList:
+    properties:
+      feedback_list:
+        description: Contains the list of feedback entries
+        type: array
+        items:
+          $ref: "#/definitions/Feedback"
+  Error:
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
