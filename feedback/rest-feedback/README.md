@@ -14,7 +14,7 @@ Naturally, you will need Maven and an internet connection to download the depend
 
 ### Installing
 
-If you speify the following maven goals, the project will be built as a standalone JAR file:
+If you specify the following maven goals, the project will be built as a standalone JAR file:
 ```
 mvn clean package
 ```
