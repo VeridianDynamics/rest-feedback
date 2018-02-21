@@ -8,11 +8,11 @@ Simply clone the project to your system and execute the following Maven goal:
 ```
 mvn spring-boot:run
 ```
-### Prerequisites
+## Prerequisites
 
 Naturally, you will need Maven and an internet connection to download the dependencies.
 
-### Installing
+## Installing
 
 If you specify the following maven goals, the project will be built as a standalone JAR file:
 ```
@@ -30,14 +30,14 @@ There are just a couple of tests which show the basics - one set of unit tests a
 Additional tests would be very similar to the ones already there.
 There is **always** room fo improvement when it comes to tests.
 
-### Debugging
+## Debugging
 
 I have included a user interface to make it dead simple to tinker with the endpoints.
 It can be found on [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 Due to bloating of the application, this should be disabled in production environment.
 I am keeping it for now because it is very useful for staging and/or demo purposes.
 
-### Talking to the Feedback "microservice"
+## Talking to the Feedback "microservice"
 
 I have leveraged the power of SpringFox to dynamically create an API definition based on the Spring Boot project.
 
