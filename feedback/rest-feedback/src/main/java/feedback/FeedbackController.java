@@ -35,7 +35,7 @@ public class FeedbackController {
 	 */
 	@RequestMapping(value = "/feedback", method = POST)
 	@ResponseStatus(CREATED)
-	public FeedbackInput acceptFeedback(@RequestBody FeedbackInput receivedFeedback) {
+	public Feedback acceptFeedback(@RequestBody FeedbackInput receivedFeedback) {
 		final String name = validateFeedbackName(receivedFeedback.getName());
 		final String feedbackText = validateFeedbackText(receivedFeedback.getFeedback());
 		final Instant instant = Instant.ofEpochMilli(System.currentTimeMillis());
@@ -43,7 +43,7 @@ public class FeedbackController {
 		final Feedback feedback = new Feedback(feedbackId.incrementAndGet(), time,
 				name, feedbackText);
 		feedbackRepository.save(feedback);
-		return receivedFeedback; // TODO: Change this to the new instance.
+		return feedback;
 	}
 
 	/**
