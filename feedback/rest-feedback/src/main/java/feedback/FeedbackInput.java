@@ -1,14 +1,16 @@
 package feedback;
 
+/**
+ * Class representing the incoming feedback.
+ * @author Jan Hron
+ */
 public class FeedbackInput {
 	private String name;
 	private String feedback;
 	
-	public FeedbackInput(String name, String feedback) {
-		this.name = name;
-		this.feedback = feedback;
-	}
-	
+	/**
+	 * Dummy constructor for the JSON parser.
+	 */
 	public FeedbackInput() {}
 
 	public void setName(String name) {

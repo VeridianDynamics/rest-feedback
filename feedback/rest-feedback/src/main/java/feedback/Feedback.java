@@ -1,32 +1,35 @@
 package feedback;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+/**
+ * Internal representation of the received feedback.
+ * @author Jan Hron
+ */
 public class Feedback {
-	private static final Logger LOGGER = LoggerFactory.getLogger(Feedback.class);
-	
 	private long id;
-	private long timestamp;
+	private String time;
 	private String name;
 	private String feedback;
 	
-	public Feedback(long id, long timestamp, String name, String feedback) {
+	/**
+	 * Constructor of the instance.
+	 * @param id The ID.
+	 * @param time Time of entry in UTC.
+	 * @param name The name field.
+	 * @param feedback The feedback field.
+	 */
+	public Feedback(long id, String time, String name, String feedback) {
 		this.id = id;
-		this.timestamp = timestamp;
+		this.time = time;
 		this.name = name;
 		this.feedback = feedback;
-		LOGGER.info("Feedback created! id:{}, timestamp:{}, name:{}, feedback:{}", id, timestamp, name, feedback);
 	}
-	
-	public Feedback() {}
 	
 	public void setId(long id) {
 		this.id = id;
 	}
 
-	public void setTimestamp(long timestamp) {
-		this.timestamp = timestamp;
+	public void setTimestamp(String time) {
+		this.time = time;
 	}
 
 	public void setName(String name) {
@@ -41,8 +44,8 @@ public class Feedback {
 		return id;
 	}
 
-	public long getTimestamp() {
-		return timestamp;
+	public String getTime() {
+		return time;
 	}
 	
 	public String getName() {

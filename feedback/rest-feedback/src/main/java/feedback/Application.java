@@ -18,6 +18,9 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 	
+	/**
+	 * Support for automatic API export.
+	 */
 	@Bean
 	public Docket petApi() {
 		return new Docket(DocumentationType.SWAGGER_2)
