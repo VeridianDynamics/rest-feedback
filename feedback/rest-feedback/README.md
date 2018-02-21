@@ -41,8 +41,7 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
    "name": "string" \ 
  }' 'http://localhost:8080/feedback'
 ```
-[http://localhost:8080/list](http://localhost:8080/list) - provides a JSON list of existing Feedback entries
-
+[http://localhost:8080/list](http://localhost:8080/list) - provides a JSON list of existing Feedback entries  
 **Option A - full list**
 ```
 curl -X GET --header 'Accept: application/json' 'http://localhost:8080/list'
