@@ -1,20 +1,29 @@
 package feedback;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@Entity
 public class Feedback {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Feedback.class);
+	
+	@Id
+	@GeneratedValue
 	private long id;
+	
 	private long timestamp;
 	private String name;
-	private String text;
+	private String feedback;
 	
 	public Feedback(long id, long timestamp, String name, String text) {
 		this.id = id;
 		this.timestamp = timestamp;
 		this.name = name;
-		this.text = text;
+		this.feedback = text;
 		LOGGER.info("Feedback created! id:{}, timestamp:{}, name:{}, text:{}", id, timestamp, name, text);
 	}
 	
@@ -30,7 +39,7 @@ public class Feedback {
 		return name;
 	}
 	
-	public String getText() {
-		return text;
+	public String getFeedback() {
+		return feedback;
 	}
 }
