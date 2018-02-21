@@ -23,7 +23,34 @@ You can then run it as follows:
 ```
 java -jar rest-feedback-0.0.1-SNAPSHOT.jar
 ```
+## Usage
 
+There are two endpoints:
+
+[http://localhost:8080/feedback](http://localhost:8080/feedback) - accepts Feedback as JSON
+```
+{
+  "feedback": "string",
+  "name": "string"
+}
+```
+**Try it from commandline:**
+```
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \ 
+   "feedback": "string", \ 
+   "name": "string" \ 
+ }' 'http://localhost:8080/feedback'
+```
+[http://localhost:8080/list](http://localhost:8080/list) - provides a JSON list of existing Feedback entries
+
+**Option A - full list**
+```
+curl -X GET --header 'Accept: application/json' 'http://localhost:8080/list'
+```
+**Option B - Filtered list**
+```
+curl -X GET --header 'Accept: application/json' 'http://localhost:8080/list?name=getOnlyThisName'
+```
 ## Tests
 
 There are just a couple of tests which show the basics - one set of unit tests and one set of integration tests (sort of).
